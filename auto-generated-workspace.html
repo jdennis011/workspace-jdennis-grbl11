@@ -228,10 +228,10 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
         id: "com-chilipeppr-workspace-grbl", // Make the id the same as the cpdefine id
         name: "Workspace / grbl", // The descriptive name of your widget.
         desc: `A ChiliPeppr Workspace grbl.`,
-        url: "http://raw.githubusercontent.com/jpadie/workspace-grbl1/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/jpadie/jpadiegrbl1wsclone", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/jpadie/workspace-grbl1", // The backing github repo
-        testurl: "http://jpadiegrbl1wsclone-jpadie.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
+        url: "http://raw.githubusercontent.com/https://master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/root/grbl-1.1-super", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/https:/", // The backing github repo
+        testurl: "http://grbl-1.1-super-root.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
         /**
          * Contains reference to the Console widget object. Hang onto the reference
          * so we can resize it when the window resizes because we want it to manually
@@ -259,6 +259,7 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
 
             //this.loadTemplateWidget();
 
+            this.loadSuperTouchWidget();
             // Create our workspace upper right corner triangle menu
             this.loadWorkspaceMenu();
             // Add our billboard to the menu (has name, url, picture of workspace)
@@ -331,6 +332,24 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
                 }
             );
         },
+       loadSuperTouchWidget: function(callback) {
+            var that = this;
+            chilipeppr.load(
+              "#com-chilipeppr-widget-super-touchplate",
+              "http://raw.githubusercontent.com/PyroAVR/widget-super-touchplate/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetInsertedInto
+                cprequire(
+                  ["inline:com-chilipeppr-widget-super-touchplate"], // the id you gave your widget
+                  function(mywidget) {
+                    // Callback that is passed reference to your newly loaded widget
+                    console.log("My widget just got loaded.", mywidget);
+                    mywidget.init();
+                  }
+                );
+              }
+            );
+        },        
         /**
          * Load the Serial Port JSON Server widget via chilipeppr.load()
          */
@@ -1722,6 +1741,10 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
                     <!-- XYZ -->
                     <div id="com-chilipeppr-xyz-instance" class="">Load XYZ Here</div>
                     <!-- Tinyg -->
+                    
+                    
+                    <div id="com-chilipeppr-widget-super-touchplate" class="">Load Super Touch Plate Here</div>
+                    
                     <div id="com-chilipeppr-widget-grbl-instance" class="">Load GRBL Here</div>
                     <!-- WebRTC Client -->
                     <!--<div id="com-chilipeppr-webrtcclient" class="">Load WebRTC Client Here</div>-->

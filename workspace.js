@@ -85,6 +85,7 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
 
             //this.loadTemplateWidget();
 
+            this.loadSuperTouchWidget();
             // Create our workspace upper right corner triangle menu
             this.loadWorkspaceMenu();
             // Add our billboard to the menu (has name, url, picture of workspace)
@@ -157,6 +158,24 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
                 }
             );
         },
+       loadSuperTouchWidget: function(callback) {
+            var that = this;
+            chilipeppr.load(
+              "#com-chilipeppr-widget-super-touchplate",
+              "http://raw.githubusercontent.com/PyroAVR/widget-super-touchplate/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetInsertedInto
+                cprequire(
+                  ["inline:com-chilipeppr-widget-super-touchplate"], // the id you gave your widget
+                  function(mywidget) {
+                    // Callback that is passed reference to your newly loaded widget
+                    console.log("My widget just got loaded.", mywidget);
+                    mywidget.init();
+                  }
+                );
+              }
+            );
+        },        
         /**
          * Load the Serial Port JSON Server widget via chilipeppr.load()
          */
